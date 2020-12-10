@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+	<div class="cont">
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="profile-img" src="{{ user.photo.url }}" alt="">
+                <p>Change photo</p>
+                <input type="file">
+            </div>
+            <div class="col-lg-8">
+                <p>Username: {{ user }}</p>
+                <p>First name: {{ user.first_name }}</p>
+                <p>Last name: {{ user.last_name }} </p>
+                <p>Date joined: {{ user.date_joined }}</p>
+                <p>Email: {{ user.email|slice:'3' }}***</p>
+                <p>Password: <a href="{% url 'user:ps-change' %}">change password</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

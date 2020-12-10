@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grow">
+	<div class="container">
+		<h2>Restoring access</h2>
+	</div>
+</div>
+<div class="container">
+	<div class="account">
+        <div class="col-md-9 pb-25">
+        <h4>
+            You have successfully changed your password
+        </h4>
+        <br>
+        <h4>
+           You can login through this link <a href="{% url 'user:login' %}">login</a>
+        </h4>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

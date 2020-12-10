@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="grow">
+    <div class="container">
+        <h2>Register</h2>
+    </div>
+</div>
+<div class=" container">
+    <div class=" register">
+        {% if form.errors %}
+            <div class="alert alert-danger pl-25"">
+                    <p class="form-error">{{ form.errors }}</p>
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="col-md-6 register-top-grid">
+                <h3>Personal infomation</h3>
+                {% for field in form %}
+                    <div>
+                        <span>{{ field.label }}</span>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <a class="news-letter" href="#">
+                    <label class="checkbox"><input type="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+                </a>
+                {% csrf_token %}
+                <input type="submit" value="Submit">
+            </div>
+
+<!--            <div class="col-md-6 register-bottom-grid">
+                <h3>Login information</h3>
+                <div>
+                    <span>Password</span>
+                    <input type="password">
+                </div>
+                <div>
+                    <span>Confirm Password</span>
+                    <input type="password">
+                </div>
+                <input type="submit" value="submit">
+             </div>-->
+            <div class="clearfix"> </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

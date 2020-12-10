@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="grow">
+	<div class="container">
+		<h2>Restoring access</h2>
+	</div>
+</div>
+<div class="container">
+	<div class="account">
+		<div class="account-pass">
+
+			<div class="col-md-8 account-top">
+				{% if form.non_field_errors %}
+                    <div class="non-field-errors alert alert-danger">
+                        {% for err in form.non_field_errors %}
+                            <p class="form-error">{{ err }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+				<form method="post">
+					{% for field in form %}
+						<div>
+							<span>{{ field.label }}</span>
+							{{ field }}
+						</div>
+					{% endfor %}
+					{% csrf_token %}
+					<input type="submit" value="Restore">
+                </form>
+			</div>
+			<div class="clearfix"> </div>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}
